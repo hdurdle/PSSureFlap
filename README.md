@@ -1,6 +1,6 @@
 # PSSureFlap
 
-Unofficial PowerShell scripts for the Sure Petcare SureFlap API: see where your pets are, check flap batteries, and set pet permissions.
+Unofficial PowerShell scripts for the Sure Petcare SureFlap API: see where your pets are, check flap batteries, set pet permissions, and lock or unlock flaps.
 
 > **Unofficial.** This project is not affiliated with, endorsed by or supported by Sure Petcare. SureFlap and Sure Petcare are trademarks of their respective owners. The API it uses is undocumented and can change without notice, so scripts may break.
 
@@ -36,6 +36,7 @@ Every script has help: `Get-Help .\Get-SureFlapPet.ps1 -Full`.
 | `Get-SureFlapTag.ps1`, `Get-SureFlapUser.ps1`, `Get-SureFlapPhoto.ps1` | Single lookups |
 | `Set-SureFlapPetPosition.ps1` | Mark a pet inside or outside |
 | `Set-SureFlapPetPermission.ps1` | Let a pet out through a flap, or keep it in |
+| `Set-SureFlapLock.ps1` | Lock or unlock a flap for every pet: Unlocked, KeepIn, KeepOut or Locked |
 | `.SureFlapApi.ps1` | Shared helper the others dot-source (`Invoke-SureFlapApi`) |
 
 `Get-` scripts return objects, so pipe them to `Select-Object`, `Where-Object` or `Format-Table`.
