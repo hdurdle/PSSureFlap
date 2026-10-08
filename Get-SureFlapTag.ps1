@@ -1,13 +1,31 @@
-param (
-	[string]$tagID
+#Requires -Version 7.0
+
+<#
+.SYNOPSIS
+    Returns one microchip tag.
+
+.DESCRIPTION
+    Returns the tag's microchip number and the products it works with
+    (GET /api/tag/{id}). Read-only.
+
+    Logs in with the SureFlapEmail / SureFlapPassword environment variables
+    (see .SureFlapApi.ps1).
+
+.PARAMETER TagID
+    SureFlap tag ID (the tag_id column from Get-SureFlapPet.ps1), not the
+    microchip number.
+
+.EXAMPLE
+    .\Get-SureFlapTag.ps1 -TagID 12345
+#>
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)][ValidateRange(1, [int]::MaxValue)][int]$TagID
 )
 
-. ./Get-SureFlapHousehold.ps1
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
 
-$uri = $endpoint + "/api/tag/$tagID"
+. "$PSScriptRoot/.SureFlapApi.ps1"
 
-$headers = @{}
-$headers.Add("Authorization","Bearer $token" ) | Out-Null
-
-$res = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers -ContentType "application/json"
-$res.data
+Invoke-SureFlapApi -Path "/api/tag/$TagID"

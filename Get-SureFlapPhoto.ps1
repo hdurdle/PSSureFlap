@@ -1,13 +1,25 @@
-param (
-	[string]$householdID
-)
+#Requires -Version 7.0
 
-. ./Get-SureFlapHousehold.ps1
+<#
+.SYNOPSIS
+    Lists the photos on the account.
 
-$uri = $endpoint + "/api/photo"
+.DESCRIPTION
+    Returns each photo's metadata, including its download location (GET /api/photo).
+    Read-only.
 
-$headers = @{}
-$headers.Add("Authorization","Bearer $token" ) | Out-Null
+    Logs in with the SureFlapEmail / SureFlapPassword environment variables
+    (see .SureFlapApi.ps1).
 
-$res = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers -ContentType "application/json"
-$res.data
+.EXAMPLE
+    .\Get-SureFlapPhoto.ps1 | Select-Object id, title, location
+#>
+[CmdletBinding()]
+param()
+
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
+. "$PSScriptRoot/.SureFlapApi.ps1"
+
+Invoke-SureFlapApi -Path '/api/photo'

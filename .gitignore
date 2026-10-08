@@ -1,6 +1,9 @@
 
+# Legacy: no longer used, but older clones may still hold real credentials in these
 SureFlapConfig\.ps1
-
 sureflap\.token
 
-Test*
+# Personal flap IDs; Get-SureFlapPetLocation-example.ps1 is the committed template
+Get-SureFlapPetLocation\.ps1
+# Its name before October 2026
+Get-Locations\.ps1
