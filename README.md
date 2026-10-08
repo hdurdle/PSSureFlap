@@ -1,5 +1,8 @@
-# PowerShell SureFlap API Examples
-Consume the SureFlap REST API via PowerShell
+# PSSureFlap
+
+Unofficial PowerShell scripts for the Sure Petcare SureFlap API: see where your pets are, check flap batteries, and set pet permissions.
+
+> **Unofficial.** This project is not affiliated with, endorsed by or supported by Sure Petcare. SureFlap and Sure Petcare are trademarks of their respective owners. The API it uses is undocumented and can change without notice, so scripts may break.
 
 The device in question: https://www.surepetcare.com/en-gb/pet-doors/microchip-pet-door-connect
 
